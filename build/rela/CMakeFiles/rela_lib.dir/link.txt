@@ -1,0 +1,2 @@
+/usr/bin/ar qc librela_lib.a CMakeFiles/rela_lib.dir/transition.cc.o CMakeFiles/rela_lib.dir/batcher.cc.o CMakeFiles/rela_lib.dir/batch_runner.cc.o CMakeFiles/rela_lib.dir/context.cc.o
+/usr/bin/ranlib librela_lib.a
