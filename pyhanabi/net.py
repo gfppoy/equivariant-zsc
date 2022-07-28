@@ -448,6 +448,17 @@ class EquivariantLSTMNet(torch.jit.ScriptModule):
         colours = [0, 1, 2, 3, 4]
         if self.group_type == "cyclic":
             self.symmetries = torch.tensor([[0,1,2,3,4],[4,0,1,2,3],[3,4,0,1,2],[2,3,4,0,1],[1,2,3,4,0]])
+        elif self.group_type == "dihedral":
+            self.symmetries = torch.tensor([[0,1,2,3,4],
+              [1,2,3,4,0],
+              [2,3,4,0,1],
+              [3,4,0,1,2],
+              [4,0,1,2,3],
+              [0,4,3,2,1],
+              [4,3,2,1,0],
+              [3,2,1,0,4],
+              [2,1,0,4,3],
+              [1,0,4,3,2]])
         else: # symmetric group
             self.symmetries = torch.tensor(list(permutations(colours)))
         self.num_symmetries = len(self.symmetries)
