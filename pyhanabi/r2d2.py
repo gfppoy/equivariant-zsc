@@ -8,7 +8,7 @@ from collections import OrderedDict
 import torch
 import torch.nn as nn
 from typing import Tuple, Dict
-from net import FFWDNet, PublicLSTMNet, LSTMNet, EquivariantLSTMNet
+from net import FFWDNet, PublicLSTMNet, LSTMNet, EquivariantLSTMNet, EquivariantPublicLSTMNet
 
 
 class R2D2Agent(torch.jit.ScriptModule):
@@ -48,12 +48,20 @@ class R2D2Agent(torch.jit.ScriptModule):
             self.online_net = FFWDNet(in_dim, hid_dim, out_dim).to(device)
             self.target_net = FFWDNet(in_dim, hid_dim, out_dim).to(device)
         elif net == "publ-lstm":
-            self.online_net = PublicLSTMNet(
-                device, in_dim, hid_dim, out_dim, num_lstm_layer
-            ).to(device)
-            self.target_net = PublicLSTMNet(
-                device, in_dim, hid_dim, out_dim, num_lstm_layer
-            ).to(device)
+            if equivariant:
+                self.online_net = EquivariantPublicLSTMNet(
+                    device, in_dim, hid_dim, out_dim, num_lstm_layer
+                ).to(device)
+                self.target_net = EquivariantPublicLSTMNet(
+                    device, in_dim, hid_dim, out_dim, num_lstm_layer
+                ).to(device)
+            else:
+                self.online_net = PublicLSTMNet(
+                    device, in_dim, hid_dim, out_dim, num_lstm_layer
+                ).to(device)
+                self.target_net = PublicLSTMNet(
+                    device, in_dim, hid_dim, out_dim, num_lstm_layer
+                ).to(device)
         elif net == "lstm":
             if equivariant:
                 self.online_net = EquivariantLSTMNet(
