@@ -1,9 +1,10 @@
-# Off-Belief Learning
+# Equivariant Networks for Zero-Shot Coordination/Off-Belief Learning
 
 ## Introduction
 
-This repo contains the implementation of the algorithm proposed
-in [Off-Belief Learning, ICML 2021](https://arxiv.org/pdf/2103.04000.pdf).
+This repo contains the implementation of the EQC architecture proposed in Equivariant Networks for Zero-Shot Coordination, NeurIPS 2022.
+
+This repo is largely based off the [Off-Belief Learning repo](https://github.com/facebookresearch/off-belief-learning) and contains the implementation of the algorithm proposed in [Off-Belief Learning, ICML 2021](https://arxiv.org/pdf/2103.04000.pdf). As such, much of the README from that repo is the same here.
 
 ## Update
 
