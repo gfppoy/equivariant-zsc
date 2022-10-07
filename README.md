@@ -1,5 +1,4 @@
-# Equivariant Networks for Zero-Shot Coordination/Off-Belief Learning
-
+# Equivariant Networks for Zero-Shot Coordination
 ## Introduction
 
 This repo contains the implementation of the EQC architecture proposed in Equivariant Networks for Zero-Shot Coordination, NeurIPS 2022.
