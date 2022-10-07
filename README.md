@@ -5,15 +5,6 @@ This repo contains the implementation of the EQC architecture proposed in Equiva
 
 This repo is largely based off the [Off-Belief Learning repo](https://github.com/facebookresearch/off-belief-learning) and contains the implementation of the algorithm proposed in [Off-Belief Learning, ICML 2021](https://arxiv.org/pdf/2103.04000.pdf). As such, much of the README from that repo is the same here.
 
-## Update
-
-[Fed 2022] We added new code in `pyhanabi/bot` to facilitate playing with
-the bot online. Checkout the README in that folder for more detail.
-
-[Fed 2022] We fixed a major pybind compatibility problem that has been
-preventing us from using newer pytorch version. Check the Environment Setup
-for more detail.
-
 ## Environment Setup
 
 We have been using `pytorch-1.5.1`, `cuda-10.1`, and `cudnn-v7.6.5` in
