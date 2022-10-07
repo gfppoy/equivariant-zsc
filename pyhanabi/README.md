@@ -92,7 +92,15 @@ sh scripts/obl2.sh
 
 Subsequent levels can be trained the same way.
 
+### Train G-OP Policies
 
+To train with G-OP, go to `line 165` in `rlcc/r2d2_actor.cc``, and set:
+```
+training_type = 0 for using permutations in S_5
+training_type = 1 for using permutations in C_5
+training_type = 2 for using permutations in D_10
+```
+Then run any of the scripts above, whilst setting the flag `--shuffle_color` to 1.
 ### Evaluation
 
 Run the following command to evaluate a trained model, such as those provided with the repo.
@@ -104,6 +112,7 @@ To compute the cross play score of independely trained models with different see
 ```shell
 python tools/cross_play.py --root ../models/icml_OBL1/ --include BZA0 --num_player 2
 ```
+To symmetrize the policies, go to `line 188` in `pyhanabi/utils.py` and set `config["equivariant"] = 1`.
 
 The final lines of the output are:
 ```
