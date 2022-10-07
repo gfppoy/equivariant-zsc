@@ -162,44 +162,121 @@ void R2D2Actor::reset(const HanabiEnv& env) {
       if (i == fixColorPlayer) {
         continue;
       }
-      //std::shuffle(colorPermute.begin(), colorPermute.end(), rng_);
-      int ch = rand() % 5;
-      if (ch == 0) {
-	      colorPermute[0] = 0;
-	      colorPermute[1] = 1;
-	      colorPermute[2] = 2;
-	      colorPermute[3] = 3;
-	      colorPermute[4] = 4;
+      int training_type = 0;
+      if (training_type == 0) {
+        std::shuffle(colorPermute.begin(), colorPermute.end(), rng_);       
       }
-      else if (ch == 1) {
-	      colorPermute[0] = 4;
-              colorPermute[1] = 0;
-              colorPermute[2] = 1;
-              colorPermute[3] = 2;
-              colorPermute[4] = 3;
+      else if (training_type == 1) {
+        int ch = rand() % 5;
+        if (ch == 0) {
+	  colorPermute[0] = 0;
+	  colorPermute[1] = 1;
+	  colorPermute[2] = 2;
+	  colorPermute[3] = 3;
+	  colorPermute[4] = 4;
+        }
+        else if (ch == 1) {
+	  colorPermute[0] = 4;
+          colorPermute[1] = 0;
+          colorPermute[2] = 1;
+          colorPermute[3] = 2;
+          colorPermute[4] = 3;
+        }
+        else if (ch == 2) {
+          colorPermute[0] = 3;
+          colorPermute[1] = 4;
+          colorPermute[2] = 0;
+          colorPermute[3] = 1;
+          colorPermute[4] = 2;
+        }
+        else if (ch == 3) {
+          colorPermute[0] = 2;
+          colorPermute[1] = 3;
+          colorPermute[2] = 4;
+          colorPermute[3] = 0;
+          colorPermute[4] = 1;
+        }
+        else if (ch == 4) {
+          colorPermute[0] = 1;
+          colorPermute[1] = 2;
+          colorPermute[2] = 3;
+          colorPermute[3] = 4;
+          colorPermute[4] = 0;
+        }      
       }
-      else if (ch == 2) {
-              colorPermute[0] = 3;
-              colorPermute[1] = 4;
-              colorPermute[2] = 0;
-              colorPermute[3] = 1;
-              colorPermute[4] = 2;
+      else if (training_type == 2) {
+        int ch = rand() % 10;
+        if (ch == 0) {
+	  colorPermute[0] = 0;
+	  colorPermute[1] = 1;
+	  colorPermute[2] = 2;
+	  colorPermute[3] = 3;
+	  colorPermute[4] = 4;
+        }
+        else if (ch == 1) {
+	  colorPermute[0] = 4;
+          colorPermute[1] = 0;
+          colorPermute[2] = 1;
+          colorPermute[3] = 2;
+          colorPermute[4] = 3;
+        }
+        else if (ch == 2) {
+          colorPermute[0] = 3;
+          colorPermute[1] = 4;
+          colorPermute[2] = 0;
+          colorPermute[3] = 1;
+          colorPermute[4] = 2;
+        }
+        else if (ch == 3) {
+          colorPermute[0] = 2;
+          colorPermute[1] = 3;
+          colorPermute[2] = 4;
+          colorPermute[3] = 0;
+          colorPermute[4] = 1;
+        }
+        else if (ch == 4) {
+          colorPermute[0] = 1;
+          colorPermute[1] = 2;
+          colorPermute[2] = 3;
+          colorPermute[3] = 4;
+          colorPermute[4] = 0;
+        }
+	else if (ch == 5) {
+	  colorPermute[0] = 0;
+	  colorPermute[1] = 4;
+	  colorPermute[2] = 3;
+	  colorPermute[3] = 2;
+	  colorPermute[4] = 1;
+        }
+        else if (ch == 6) {
+	  colorPermute[0] = 4;
+          colorPermute[1] = 3;
+          colorPermute[2] = 2;
+          colorPermute[3] = 1;
+          colorPermute[4] = 0;
+        }
+        else if (ch == 7) {
+          colorPermute[0] = 3;
+          colorPermute[1] = 2;
+          colorPermute[2] = 1;
+          colorPermute[3] = 0;
+          colorPermute[4] = 4;
+        }
+        else if (ch == 8) {
+          colorPermute[0] = 2;
+          colorPermute[1] = 1;
+          colorPermute[2] = 0;
+          colorPermute[3] = 4;
+          colorPermute[4] = 3;
+        }
+        else if (ch == 9) {
+          colorPermute[0] = 1;
+          colorPermute[1] = 0;
+          colorPermute[2] = 4;
+          colorPermute[3] = 3;
+          colorPermute[4] = 2;
+        }
       }
-      else if (ch == 3) {
-              colorPermute[0] = 2;
-              colorPermute[1] = 3;
-              colorPermute[2] = 4;
-              colorPermute[3] = 0;
-              colorPermute[4] = 1;
-      }
-      else if (ch == 4) {
-              colorPermute[0] = 1;
-              colorPermute[1] = 2;
-              colorPermute[2] = 3;
-              colorPermute[3] = 4;
-              colorPermute[4] = 0;
-      }
-
       std::sort(invColorPermute.begin(), invColorPermute.end(), [&](int i, int j) {
         return colorPermute[i] < colorPermute[j];
       });
